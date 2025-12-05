@@ -5,6 +5,20 @@
 namespace algo
 {
 
+template<class T>
+void swap(T &left,T &right)
+{
+T temp(left); // T temp=left
+left=right;
+right=temp;
+}
+
+template<class Iter1, class Iter2>
+void iter_swap(Iter1 left,Iter2 right)
+{
+swap(*left,*right);
+}
+
 /**
 Sort the elements in the reage [begin,end) in accending order
 The elements are compared using `operator<`
@@ -59,7 +73,7 @@ void reverse(BidirectionalIterator begin, BidirectionalIterator end)
 int e;
 BidirectionalIterator a,b;
 typename std::iterator_traits<BidirectionalIterator>::difference_type f=std::distance(begin,end);
-for(e=0,a=begin,b=end-1;e<f;e++,f--,a++,b--) std::iter_swap(a,b);
+for(e=0,a=begin,b=end-1;e<f;e++,f--,a++,b--) iter_swap(a,b);
 }
 
 template<class ForwardIterator>
