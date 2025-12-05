@@ -1,0 +1,46 @@
+#ifndef __$__TM_CPP_SORT_ALGORITHM__2025_
+#define __$__TM_CPP_SORT_ALGORITHM__2025_
+
+#include<tm_algorithm>
+
+template<typename RandomIter, typename Compare>
+void bubble_sort(RandomIter begin, RandomIter end,Compare cmp)
+{
+RandomeIter y,e,f;
+for(y=end-1;y>begin;y--) for(e=begin,f=e+1;e<y;e++,f++) if(cmp(*e,*f)>0) algo::iter_swap(e,f);
+}
+
+template<typename RandomIter,typename Compare>
+void linear_sort(RandomIter begin,RandomIter end,Compare cmp)
+{
+RandomIter e,f;
+for(e=begin;e<end-1;e++) for(f=e;f<end;f++) if(cmp(*e,*f)>0) algo::iter_swap(e,f);
+}
+
+
+template<typename RandomIter, typename Compare>
+void selection_sort(RandomIter begin,RandomIter end,Compare cmp)
+{
+RandomIter e,f,m;
+for(e=begin;e<end-1;e++) 
+{
+m=e;
+for(f=e;f<end;f++) if(cmp(*m,*f)>0) m=f;
+algo::iter_swap(m,e);
+}
+}
+
+template<typename RandomIter,typename Compare>
+void insertion_sort(RandomIter begin,RandomIter end,Compare cmp)
+{
+RandomIter y,j;
+for(y=begin+1;y<end;y++)
+{
+typename iterator_traits<RandomIter>::value_type data=*y;
+for(j=y-1;j>=begin && cmp(data,*j)>0;j--) *(j+1)=*j;
+*(j+1)=data;
+}
+}
+
+
+#endif
