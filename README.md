@@ -58,6 +58,11 @@ begin,end: is an inital and last position of the sequence to compare. The range 
 comp: is a binary function which accepts two elements in the range as argurment make comparision between them and return a bool value (2)
 ```
 ---
+
+<a name="numeric"/>
+
+## Numeric
+
 ### algo::accumulate
 ````
 template<class InputItr, class T> T accumulate(InputItr begin, InputItr end, T initial);
@@ -69,11 +74,6 @@ begin,end: is an initial and last position of the squence. The range used in [be
 initial: inital value of the accumulate
 ```
 ---
-
-<a name="numeric"/>
-
-## Numeric
-
 
 <a name="sorting"/>
 
