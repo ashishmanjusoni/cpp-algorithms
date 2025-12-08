@@ -1,4 +1,11 @@
-# Algorithms
+[Algorithms](#algorithms)<br>
+[Numeric](#numeric)<br>
+[Sorting Algorithms](#sorting)<br>
+
+<a name="algorithms"/>
+
+## Algorithms
+
 This repository contains all algorithms (like sort, binary search, aggregation function etc.) design in c++ programming language.
 
 ## Header defined function
@@ -62,3 +69,13 @@ begin,end: is an initial and last position of the squence. The range used in [be
 initial: inital value of the accumulate
 ```
 ---
+
+<a name="numeric"/>
+
+## Numeric
+
+
+<a name="sorting"/>
+
+## Sorting Algorithms
+
