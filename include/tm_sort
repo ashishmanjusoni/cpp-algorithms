@@ -2,7 +2,8 @@
 #define __$__TM_CPP_SORT_ALGORITHM__2025_
 
 #include<tm_algorithm>
-
+namespace srt
+{
 template<typename RandomIter, typename Compare>
 void bubble_sort(RandomIter begin, RandomIter end,Compare cmp)
 {
@@ -41,6 +42,6 @@ for(j=y-1;j>=begin && cmp(data,*j)>0;j--) *(j+1)=*j;
 *(j+1)=data;
 }
 }
-
+}
 
 #endif
