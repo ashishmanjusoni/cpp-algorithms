@@ -112,14 +112,8 @@ template<typename RandomIter,typename Compare> void insertion_sort(RandomIter be
 ```
 Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
 ```
-		|:--------------------------:|
 		|      Time Complexity       |
-		|:-------------:|:----------:|
+		|:--------------------------:|
 		| Worst Case    |   O(n^2)   |
-		|:-------------:|:----------:|
 		| Best Case     |   O(n)     |
-		|:-------------:|:----------:|
 		| Average Case  |   O(n^2)   |
-		|:-------------:|:----------:|
-		  O(n) (Best Case)
-		  O(n^2) (Average Case)
