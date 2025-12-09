@@ -79,3 +79,11 @@ initial: inital value of the accumulate
 
 ## Sorting Algorithms
 
+### algo::bubble_sort
+```
+template<typename RandomIter, typename Compare> void bubble_sort(RandomIter begin, RandomIter end,Compare cmp)
+```
+Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
+```
+Time Complexity : O(n^2)
+```
