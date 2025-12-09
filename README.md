@@ -87,3 +87,39 @@ Sort the given element from range [begin,end). The collection should randomly ac
 ```
 Time Complexity : O(n^2)
 ```
+
+### algo::linear_sort
+```
+template<typename RandomIter,typename Compare> void linear_sort(RandomIter begin,RandomIter end,Compare cmp)
+```
+Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
+```
+Time Complexity : O(n^2)
+```
+
+### algo::selection_sort
+```
+template<typename RandomIter, typename Compare> void selection_sort(RandomIter begin,RandomIter end,Compare cmp)
+```
+Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
+```
+Time Complexity : O(n^2)
+```
+
+### algo::insertion_sort
+```
+template<typename RandomIter,typename Compare> void insertion_sort(RandomIter begin,RandomIter end,Compare cmp)
+```
+Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
+```
+		|:--------------------------:|
+		|      Time Complexity       |
+		|:-------------:|:----------:|
+		| Worst Case    |   O(n^2)   |
+		|:-------------:|:----------:|
+		| Best Case     |   O(n)     |
+		|:-------------:|:----------:|
+		| Average Case  |   O(n^2)   |
+		|:-------------:|:----------:|
+		  O(n) (Best Case)
+		  O(n^2) (Average Case)
