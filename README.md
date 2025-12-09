@@ -73,6 +73,10 @@ Compute the sum of the given value initial and elements in the range [begin,end)
 begin,end: is an initial and last position of the squence. The range used in [begin,end) which contains all elements between begin and end, including the elemtn pointed by begin but not pointed by end.
 initial: inital value of the accumulate
 ```
+##### Time Complexity
+```
+o(n)
+``` 
 ---
 
 <a name="sorting"/>
@@ -84,36 +88,53 @@ initial: inital value of the accumulate
 template<typename RandomIter, typename Compare> void bubble_sort(RandomIter begin, RandomIter end,Compare cmp)
 ```
 Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
-```
-Time Complexity : O(n^2)
-```
+
+##### Time Complexity
+
+| Cases | Complexity |
+| --- | --- |
+| Worst Case | O(n^2) |
+| Best Case | O(n^2) |
+| Average Case | O(n^2) |
 
 ### algo::linear_sort
 ```
 template<typename RandomIter,typename Compare> void linear_sort(RandomIter begin,RandomIter end,Compare cmp)
 ```
 Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
-```
-Time Complexity : O(n^2)
-```
+
+##### Time Complexity
+
+| Cases | Complexity |
+| --- | --- |
+| Worst Case | O(n^2) |
+| Best Case | O(n^2) |
+| Average Case | O(n^2) |
 
 ### algo::selection_sort
 ```
 template<typename RandomIter, typename Compare> void selection_sort(RandomIter begin,RandomIter end,Compare cmp)
 ```
 Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
-```
-Time Complexity : O(n^2)
-```
+
+##### Time Complexity
+
+| Cases | Complexity |
+| --- | --- |
+| Worst Case | O(n^2) |
+| Best Case | O(n^2) |
+| Average Case | O(n^2) |
 
 ### algo::insertion_sort
 ```
 template<typename RandomIter,typename Compare> void insertion_sort(RandomIter begin,RandomIter end,Compare cmp)
 ```
 Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
-```
-		|      Time Complexity       |
-		|:--------------------------:|
-		| Worst Case    |   O(n^2)   |
-		| Best Case     |   O(n)     |
-		| Average Case  |   O(n^2)   |
+
+##### Time Complexity
+
+| Cases | Complexity |
+| --- | --- |
+| Worst Case | O(n^2) |
+| Best Case | O(n) |
+| Average Case | O(n^2) |
