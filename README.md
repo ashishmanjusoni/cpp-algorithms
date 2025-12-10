@@ -102,9 +102,11 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Average Case | O(n^2) |
 
 ### algo::linear_sort
+> Education purpose only, no use in real world
 ```
 template<typename RandomIter,typename Compare> void linear_sort(RandomIter begin,RandomIter end,Compare cmp)
 ```
+Comparing the current element with other elements in the list, swap their values if needed.
 Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
 
 ##### Time Complexity
@@ -116,9 +118,12 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Average Case | O(n^2) |
 
 ### algo::selection_sort
+> Education purpose only, no use in real world
 ```
 template<typename RandomIter, typename Compare> void selection_sort(RandomIter begin,RandomIter end,Compare cmp)
 ```
+Find the smallest element in the list by comparing from range i+1 to n-1, swap their values (i) and (smallest_index_value) if needed.
+It took less number of swapping as compare to bubble and linear sort.
 Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
 
 ##### Time Complexity
@@ -130,9 +135,11 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Average Case | O(n^2) |
 
 ### algo::insertion_sort
+> In-place sorting algorithm
 ```
 template<typename RandomIter,typename Compare> void insertion_sort(RandomIter begin,RandomIter end,Compare cmp)
 ```
+Iteratively inserting each element in unsorted portion of the list into it correct position in the sorted portion of the list. It is like sorting playing cards in your hand.
 Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
 
 ##### Time Complexity
