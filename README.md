@@ -10,6 +10,18 @@ This repository contains all algorithms (like sort, binary search, aggregation f
 
 ## Header defined function
 
+### algo::swap
+```
+template<class T> void swap(T &left,T &right);
+```
+Swap the values of `left` and `right`.
+
+### algo::swap_iter
+```
+template<class Iter1, class Iter2> void iter_swap(Iter1 left,Iter2 right)
+```
+Swap the values pointed by the iterator `left` and `right`
+
 ### algo::reverse
 ````
 template<class BidirectionalIterator> void reverse(BidirectionalIterator begin, BidirectionalIterator end);
