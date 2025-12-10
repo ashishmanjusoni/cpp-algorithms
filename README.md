@@ -16,7 +16,7 @@ template<class T> void swap(T &left,T &right);
 ```
 Swap the values of `left` and `right`.
 
-### algo::swap_iter
+### algo::iter_swap
 ```
 template<class Iter1, class Iter2> void iter_swap(Iter1 left,Iter2 right)
 ```
