@@ -86,10 +86,12 @@ o(n)
 ## Comparision Sort
 
 ### algo::bubble_sort
+> Education purpose only, no use in real world
 ```
 template<typename RandomIter, typename Compare> void bubble_sort(RandomIter begin, RandomIter end,Compare cmp)
 ```
-Sort the given element from range [begin,end). The collection should randomly accessible such as array, vector etc.
+Also reffered as **sinking sort** , comparing the current element by one after it, swapping their values if needed. These passes through the list are repeated until no swap have to performed during a pass.
+Sort the given element from range [begin,end). The collection should randomly accessible such as array and vector.
 
 ##### Time Complexity
 
