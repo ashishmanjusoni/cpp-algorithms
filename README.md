@@ -4,7 +4,7 @@
 
 <a name="algorithms"/>
 
-## Algorithms
+# Algorithms
 
 This repository contains all algorithms (like sort, binary search, aggregation function etc.) design in c++ programming language.
 
@@ -61,7 +61,7 @@ comp: is a binary function which accepts two elements in the range as argurment 
 
 <a name="numeric"/>
 
-## Numeric
+# Numeric
 
 ### algo::accumulate
 ````
@@ -81,7 +81,9 @@ o(n)
 
 <a name="sorting"/>
 
-## Sorting Algorithms
+# Sorting Algorithms
+
+## Comparision Sort
 
 ### algo::bubble_sort
 ```
