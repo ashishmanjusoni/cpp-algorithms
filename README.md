@@ -161,3 +161,34 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Worst Case | O(n^2) |
 | Best Case | O(n) |
 | Average Case | O(n^2) |
+
+### algo::quick_sort_iterative
+> divide-and-conqure algorithm
+```
+template<typename RandomIter,typename Compare> void quick_sort_iterative(RandomIter begin, RandomIter end,Compare cmp);
+```
+
+##### Time Complexity
+
+| Cases | Complexity |
+| --- | --- |
+| Worst Case | O(n^2) |
+| Best Case | O(n*log(n)) |
+| Average Case | O(n*log(n)) |
+
+
+
+### algo::quick_sort
+> divide-and-conqure algorithm
+```
+template<typename RandomIter,typename Compare> void quick_sort(RandomIter begin, RandomIter end,Compare cmp);
+```
+
+##### Time Complexity
+
+| Cases | Complexity |
+| --- | --- |
+| Worst Case | O(n^2) |
+| Best Case | O(n*log(n)) |
+| Average Case | O(n*log(n)) |
+

@@ -2,6 +2,7 @@
 #define __$__TM_CPP_SORT_ALGORITHM__2025_
 
 #include<tm_algorithm>
+#include<stack>
 namespace algo
 {
 template<typename RandomIter, typename Compare>
@@ -41,6 +42,81 @@ typename std::iterator_traits<RandomIter>::value_type data=*y;
 for(j=y-1;j>=begin && cmp(*j,data)>0;j--) *(j+1)=*j;
 *(j+1)=data;
 }
+}
+
+template<typename RandomIter,typename Compare>
+RandomIter partition_point(RandomIter begin,RandomIter end,Compare cmp)
+{
+RandomIter e,f;
+e=begin;
+f=end;
+while(e<f)
+{
+while(e<=end && cmp(*e,*begin)<=0) e++;
+while(cmp(*f,*begin)>0) f--;
+if(e<f) algo::iter_swap(e,f);
+else algo::iter_swap(begin,f);
+}
+return f;
+}
+
+template<typename RandomIter,typename Compare>
+void _quick_sort_iterative(RandomIter begin, RandomIter end,Compare cmp)
+{
+struct pair
+{
+RandomIter begin;
+RandomIter end;
+};
+std::stack<pair*> pair_stack;
+RandomIter pp;
+pair *p1,*p2;
+p1=new pair();
+p1->begin=begin;
+p1->end=end;
+pair_stack.push(p1);
+while(!pair_stack.empty())
+{
+p1=pair_stack.top();
+pair_stack.pop();
+pp=partition_point(p1->begin,p1->end,cmp);
+if(p1->begin < pp-1)
+{
+p2=new pair();
+p2->begin=begin;
+p2->end=pp-1;
+pair_stack.push(p2);
+}
+if(pp+1 < end)
+{
+p2=new pair();
+p2->begin=pp+1;
+p2->end=end;
+pair_stack.push(p2);
+}
+delete p1;
+}
+}
+
+template<typename RandomIter,typename Compare>
+void quick_sort_iterative(RandomIter begin, RandomIter end,Compare cmp)
+{
+_quick_sort_iterative(begin,end-1,cmp);
+}
+
+template<typename RandomIter,typename Compare>
+void _quick_sort(RandomIter begin, RandomIter end,Compare cmp)
+{
+if(begin>=end) return;
+RandomIter pp=partition_point(begin,end,cmp);
+_quick_sort(begin,pp-1,cmp);
+_quick_sort(pp+1,end,cmp);
+}
+
+template<typename RandomIter,typename Compare>
+void quick_sort(RandomIter begin, RandomIter end,Compare cmp)
+{
+_quick_sort(begin,end-1,cmp);
 }
 }
 
