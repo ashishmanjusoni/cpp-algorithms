@@ -162,27 +162,18 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Best Case | O(n) |
 | Average Case | O(n^2) |
 
-### algo::quick_sort_iterative
-> divide-and-conqure algorithm
-```
-template<typename RandomIter,typename Compare> void quick_sort_iterative(RandomIter begin, RandomIter end,Compare cmp);
-```
-
-##### Time Complexity
-
-| Cases | Complexity |
-| --- | --- |
-| Worst Case | O(n^2) |
-| Best Case | O(n*log(n)) |
-| Average Case | O(n*log(n)) |
-
-
-
 ### algo::quick_sort
 > divide-and-conqure algorithm
 ```
 template<typename RandomIter,typename Compare> void quick_sort(RandomIter begin, RandomIter end,Compare cmp);
 ```
+It has three parts
+1. **Choose pivot element:** Select an element from the array as pivot element. The pivot element may vary(it can be first element or last element or last element or random element or median element)
+2. **Partition the array:** Partition the array in such a way that all elements smaller then pivot will be in left side and bigger elements will be right side.
+3. **Recursive call:** Repeat step **_1_** and **_2_** for two partition sub-array. The recursive will stop when there is only one element in the sub-array. 
+
+> [!NOTE]
+> for iterative approach use **_algo::quick_sort_iterative_**
 
 ##### Time Complexity
 
