@@ -183,3 +183,30 @@ It has three parts
 | Best Case | O(n*log(n)) |
 | Average Case | O(n*log(n)) |
 
+##### Space Complexity
+O(1) 
+
+### algo::merge_sort
+> divide-and-conqure algorithm
+```
+template<typename RandomIter,typename Compare> void merge_sort(RandomIter begin, RandomIter end,Compare cmp);
+```
+It has three parts
+1. **Divide:** Divide the array into two halves until it can no-more be divided.
+2. **Conqure:** Each subarray sorted individually
+3. **Merge:** The sorted sub-array merged back together in sorted order. 
+
+> [!NOTE]
+> for iterative approach use **_algo::merge_sort_iterative_**
+
+##### Time Complexity
+
+| Cases | Complexity |
+| --- | --- |
+| Worst Case | O(n*log(n)) |
+| Best Case | O(n*log(n)) |
+| Average Case | O(n*log(n)) |
+
+##### Space Complexity
+O(n) space used for buffer array
+
