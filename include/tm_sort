@@ -3,6 +3,8 @@
 
 #include<tm_algorithm>
 #include<stack>
+#include<vector>
+#include<iterator>
 namespace algo
 {
 template<typename RandomIter, typename Compare>
@@ -117,6 +119,93 @@ template<typename RandomIter,typename Compare>
 void quick_sort(RandomIter begin, RandomIter end,Compare cmp)
 {
 _quick_sort(begin,end-1,cmp);
+}
+
+template<class RandomIter, class Compare>
+void merge(RandomIter begin,RandomIter end,Compare cmp)
+{
+typename std::iterator_traits<RandomIter>::difference_type size=algo::count(begin,end);
+typename std::iterator_traits<RandomIter>::difference_type mid=size/2;
+RandomIter l1,l2,l3;
+std::vector<typename std::iterator_traits<RandomIter>::value_type> buffer;
+l1=begin;
+l2=begin+mid;
+l3=l2+1;
+while(l1<=l2 && l3<=end)
+{
+if(cmp(*l1,*l3)<0)
+{
+buffer.push_back(*l1);
+l1++;
+}
+else
+{
+buffer.push_back(*l3);
+l3++;
+}
+}
+while(l1<=l2)
+{
+buffer.push_back(*l1);
+l1++;
+}
+while(l3<=end)
+{
+buffer.push_back(*l3);
+l3++;
+}
+for(auto a:buffer)
+{
+*begin=a;
+begin++;
+}
+}
+
+template<typename RandomIter, typename Compare>
+void _merge_sort(RandomIter begin, RandomIter end,Compare cmp)
+{
+if(begin>=end) return;
+auto size=algo::count(begin,end);
+auto mid=size/2;
+_merge_sort(begin,begin+mid,cmp);
+_merge_sort(begin+mid+1,end,cmp);
+merge(begin,end,cmp);
+}
+
+template<typename RandomIter, typename Compare>
+void merge_sort(RandomIter begin, RandomIter end,Compare cmp)
+{
+_merge_sort(begin,end-1,cmp);
+}
+
+template<typename RandomIter, typename Compare>
+void _merge_sort_iterative(RandomIter begin, RandomIter end, Compare cmp)
+{
+std::pair<RandomIter,RandomIter> p1;
+std::stack<std::pair<RandomIter,RandomIter>> s1,s2;
+s1.push(std::pair<RandomIter,RandomIter>(begin,end));
+while(!s1.empty())
+{
+p1=s1.top();
+s1.pop();
+s2.push(p1);
+auto size=algo::count(p1.first,p1.second);
+auto mid=size/2;
+if(p1.first < (p1.first+mid)) s1.push(std::pair<RandomIter,RandomIter>(p1.first,p1.first+mid));
+if((p1.first+mid+1)<end) s1.push(std::pair<RandomIter,RandomIter>(p1.first+mid+1,p1.second));
+}
+while(!s2.empty())
+{
+p1=s2.top();
+s2.pop();
+merge(p1.first,p1.end,cmp);
+}
+}
+
+template<typename RandomIter, typename Compare>
+void merg_sort_iterative(RandomIter begin, RandomIter end, Compare cmp)
+{
+_merge_sort_iterative(begin,end-1,cmp);
 }
 }
 
