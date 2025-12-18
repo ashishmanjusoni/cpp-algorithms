@@ -1,8 +1,8 @@
 [Algorithms](#algorithms)<br>
 [Numeric](#numeric)<br>
 [Sorting Algorithms](#sorting)<br>
-&emsp; [algo::bubble_sort](###bubble_sort)<br>
-&emsp; [algo::linear_sort](###linear_sort)<br>
+&emsp; [algo::bubble_sort](#bubble_sort)<br>
+&emsp; [algo::linear_sort](#linear_sort)<br>
 &emsp; [algo::selection_sort](###selection_sort)<br>
 &emsp; [algo::insertion_sort](###insertion_sort)<br>
 &emsp; [algo::quick_sort](###quick_sort)<br>
