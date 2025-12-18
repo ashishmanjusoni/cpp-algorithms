@@ -1,7 +1,13 @@
 [Algorithms](#algorithms)<br>
 [Numeric](#numeric)<br>
 [Sorting Algorithms](#sorting)<br>
-
+&emsp [Bubble Sort](###algo::bubble_sort)<br>
+&emsp [Linear Sort](###algo::linear_sort)<br>
+&emsp [Selection Sort](###algo::selection_sort)<br>
+&emsp [Insertion Sort](###algo::insertion_sort)<br>
+&emsp [Quick Sort](###algo::quick_sort)<br>
+&emsp [Merge Sort](###algo::merge_sort)<br>
+&emsp [Heap Sort](###algo::heap_sort)<br>
 <a name="algorithms"/>
 
 # Algorithms
@@ -97,6 +103,8 @@ o(n)
 
 ## Comparision Sort
 
+<a name="algo::bubble_sort"/>
+
 ### algo::bubble_sort
 > Education purpose only, no use in real world
 ```
@@ -113,6 +121,8 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Best Case | O(n^2) |
 | Average Case | O(n^2) |
 
+<a name="algo::linear_sort"/>
+
 ### algo::linear_sort
 > Education purpose only, no use in real world
 ```
@@ -128,6 +138,8 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Worst Case | O(n^2) |
 | Best Case | O(n^2) |
 | Average Case | O(n^2) |
+
+<a name="algo::selection_sort"/>
 
 ### algo::selection_sort
 > Education purpose only, no use in real world
@@ -146,6 +158,8 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Best Case | O(n^2) |
 | Average Case | O(n^2) |
 
+<a name="algo::insertion_sort"/>
+
 ### algo::insertion_sort
 > In-place sorting algorithm
 ```
@@ -162,8 +176,10 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Best Case | O(n) |
 | Average Case | O(n^2) |
 
+<a name="algo::quick_sort"/>
+
 ### algo::quick_sort
-> divide-and-conqure algorithm
+> Divide-And-Conqure Algorithm
 ```
 template<typename RandomIter,typename Compare> void quick_sort(RandomIter begin, RandomIter end,Compare cmp);
 ```
@@ -186,8 +202,10 @@ It has three parts
 ##### Space Complexity
 O(1) 
 
+<a name="algo::merge_sort"/>
+
 ### algo::merge_sort
-> divide-and-conqure algorithm
+> Divide-And-Conqure Algorithm
 ```
 template<typename RandomIter,typename Compare> void merge_sort(RandomIter begin, RandomIter end,Compare cmp);
 ```
@@ -209,4 +227,9 @@ It has three parts
 
 ##### Space Complexity
 O(n) space used for buffer array
+
+<a name="algo::heap_sort"/>
+
+### algo::heap_sort
+> Heap Data Structure
 
