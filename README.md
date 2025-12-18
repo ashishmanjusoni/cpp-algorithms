@@ -1,13 +1,13 @@
 [Algorithms](#algorithms)<br>
 [Numeric](#numeric)<br>
 [Sorting Algorithms](#sorting)<br>
-&emsp; [Bubble Sort](###algo::bubble_sort)<br>
-&emsp; [Linear Sort](###algo::linear_sort)<br>
-&emsp; [Selection Sort](###algo::selection_sort)<br>
-&emsp; [Insertion Sort](###algo::insertion_sort)<br>
-&emsp; [Quick Sort](###algo::quick_sort)<br>
-&emsp; [Merge Sort](###algo::merge_sort)<br>
-&emsp; [Heap Sort](###algo::heap_sort)<br>
+&emsp; [algo::bubble_sort](###bubble_sort)<br>
+&emsp; [algo::linear_sort](###linear_sort)<br>
+&emsp; [algo::selection_sort](###selection_sort)<br>
+&emsp; [algo::insertion_sort](###insertion_sort)<br>
+&emsp; [algo::quick_sort](###quick_sort)<br>
+&emsp; [algo::merge_sort](###merge_sort)<br>
+&emsp; [algo::heap_sort](###heap_sort)<br>
 <a name="algorithms"/>
 
 # Algorithms
@@ -103,7 +103,7 @@ o(n)
 
 ## Comparision Sort
 
-<a name="algo::bubble_sort"/>
+<a name="bubble_sort"/>
 
 ### algo::bubble_sort
 > Education purpose only, no use in real world
@@ -121,7 +121,7 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Best Case | O(n^2) |
 | Average Case | O(n^2) |
 
-<a name="algo::linear_sort"/>
+<a name="linear_sort"/>
 
 ### algo::linear_sort
 > Education purpose only, no use in real world
@@ -139,7 +139,7 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Best Case | O(n^2) |
 | Average Case | O(n^2) |
 
-<a name="algo::selection_sort"/>
+<a name="selection_sort"/>
 
 ### algo::selection_sort
 > Education purpose only, no use in real world
@@ -158,7 +158,7 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Best Case | O(n^2) |
 | Average Case | O(n^2) |
 
-<a name="algo::insertion_sort"/>
+<a name="insertion_sort"/>
 
 ### algo::insertion_sort
 > In-place sorting algorithm
@@ -176,7 +176,7 @@ Sort the given element from range [begin,end). The collection should randomly ac
 | Best Case | O(n) |
 | Average Case | O(n^2) |
 
-<a name="algo::quick_sort"/>
+<a name="quick_sort"/>
 
 ### algo::quick_sort
 > Divide-And-Conqure Algorithm
@@ -202,7 +202,7 @@ It has three parts
 ##### Space Complexity
 O(1) 
 
-<a name="algo::merge_sort"/>
+<a name="merge_sort"/>
 
 ### algo::merge_sort
 > Divide-And-Conqure Algorithm
@@ -228,7 +228,7 @@ It has three parts
 ##### Space Complexity
 O(n) space used for buffer array
 
-<a name="algo::heap_sort"/>
+<a name="heap_sort"/>
 
 ### algo::heap_sort
 > Heap Data Structure
