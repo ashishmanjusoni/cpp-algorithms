@@ -1,13 +1,13 @@
 [Algorithms](#algorithms)<br>
 [Numeric](#numeric)<br>
 [Sorting Algorithms](#sorting)<br>
-&emsp [Bubble Sort](###algo::bubble_sort)<br>
-&emsp [Linear Sort](###algo::linear_sort)<br>
-&emsp [Selection Sort](###algo::selection_sort)<br>
-&emsp [Insertion Sort](###algo::insertion_sort)<br>
-&emsp [Quick Sort](###algo::quick_sort)<br>
-&emsp [Merge Sort](###algo::merge_sort)<br>
-&emsp [Heap Sort](###algo::heap_sort)<br>
+&emsp; [Bubble Sort](###algo::bubble_sort)<br>
+&emsp; [Linear Sort](###algo::linear_sort)<br>
+&emsp; [Selection Sort](###algo::selection_sort)<br>
+&emsp; [Insertion Sort](###algo::insertion_sort)<br>
+&emsp; [Quick Sort](###algo::quick_sort)<br>
+&emsp; [Merge Sort](###algo::merge_sort)<br>
+&emsp; [Heap Sort](###algo::heap_sort)<br>
 <a name="algorithms"/>
 
 # Algorithms
