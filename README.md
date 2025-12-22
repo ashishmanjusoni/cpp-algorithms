@@ -240,11 +240,17 @@ template<typename RandomIter,typename Compare> void heap_sort(RandomIter begin, 
 * Then reduce the heap size by one
 * Rearrange the collection into max heap where we arrange the larget element on the root.
 * Repeat these step again until heap size will become zero.
-|------------------------------------------------|
-|root_node_index=(child_node_index-1)/2;         |
-|left_child_node_index=(root_node_index*2)+1     |
-|right_child_node_index=left_child_node_index+1; |
-|------------------------------------------------|
+<table>
+  <tr>
+    <td>root_node_index=(child_node_index-1)/2</td>
+  </tr>
+  <tr>
+    <td>left_child_node_index=(root_node_index*2)+1</td>
+  </tr>
+  <tr>
+    <td>right_child_node_index=left_child_node_index+1</td>
+  </tr>
+</table>
 
 ##### Time Complexity
 
