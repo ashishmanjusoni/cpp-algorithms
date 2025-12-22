@@ -232,4 +232,25 @@ O(n) space used for buffer array
 
 ### algo::heap_sort
 > Heap Data Structure
+```
+template<typename RandomIter,typename Compare> void heap_sort(RandomIter begin, RandomIter end, int fromIndex,int toIndex,Compare cmp);
+```
+* The Collection is rearranged into a max heap where a parent node is greater then it's children. 
+* Then swap the root node with last element of the heap. 
+* Then reduce the heap size by one
+* Rearrange the collection into max heap where we arrange the larget element on the root.
+* Repeat these step again until heap size will become zero.
+|------------------------------------------------|
+|root_node_index=(child_node_index-1)/2;         |
+|left_child_node_index=(root_node_index*2)+1     |
+|right_child_node_index=left_child_node_index+1; |
+|------------------------------------------------|
+
+##### Time Complexity
+
+| Cases | Complexity |
+| --- | --- |
+| Worst Case | O(n*log(n)) |
+| Best Case | O(n*log(n)) |
+| Average Case | O(n*log(n)) |
 
