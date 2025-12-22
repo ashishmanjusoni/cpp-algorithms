@@ -207,6 +207,71 @@ void merg_sort_iterative(RandomIter begin, RandomIter end, Compare cmp)
 {
 _merge_sort_iterative(begin,end-1,cmp);
 }
+
+template<typename ContiguousIter>
+constexpr bool is_contiguous_iter(ContiguousIter c_iter)
+{
+if constexpr(std::random_access_iterator<ContiguousIter>) return true;
+else return false;
+}
+
+template<typename RandomIter,typename Compare>
+void heap_sort(RandomIter begin, RandomIter end,int fromIndex,int toIndex,Compare cmp)
+{
+if(fromIndex<0|| toIndex<0 || fromIndex>=toIndex) return;
+int size=algo::count(begin,end);
+if(fromIndex>size || toIndex>size) return;
+int ri,ci,lci,rci,swi;
+RandomIter ri_itr,ci_itr,lci_itr,rci_itr,swi_itr;
+if(!is_contiguous_iter(begin)) return;
+int i;
+for(i=fromIndex;i<toIndex;i++)
+{
+ci=i+1;
+while(ci>fromIndex)
+{
+ri=(ci-fromIndex-1)/2+fromIndex;
+ri_itr=begin+ri;
+ci_itr=begin+ci;
+if(cmp(*ri_itr,*ci_itr)<0) 
+{
+algo::iter_swap(ri_itr,ci_itr);
+ci=ri;
+}
+else break;
+}
+}
+for(;toIndex>fromIndex;)
+{
+ri_itr=begin+fromIndex;
+ci_itr=begin+toIndex;
+algo::iter_swap(ri_itr,ci_itr);
+toIndex--;
+ri=fromIndex;
+while(ri<toIndex)
+{
+lci=((ri*2)+1)-fromIndex;
+if(lci>toIndex) break;
+rci=lci+1;
+if(rci>toIndex) swi=lci;
+else
+{
+lci_itr=begin+lci;
+rci_itr=begin+rci;
+if(cmp(*lci_itr,*rci_itr)>0) swi=lci;
+else swi=rci;
+}
+ri_itr=begin+ri;
+swi_itr=begin+swi;
+if(cmp(*ri_itr,*swi_itr)<0)
+{
+algo::iter_swap(ri_itr,swi_itr);
+ri=swi;
+}
+else break;
+}
+}
+}
 }
 
 #endif
