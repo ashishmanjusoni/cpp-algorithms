@@ -272,9 +272,9 @@ template<RandomAccessIter,typename Compare> void shell_sort(RandomIter begin, Ra
 * It improves the efficiency of the insertion sort by allowing element to be moved larger distance in the initial stage, which significantly reduces the number of swaps
 * It works by comparing the element at large gap between the elements, then gradually the reduces the gap.
 
-Step I : Choose a gap sequence ( n/2, n/4, ...)
-Step II: Sort elements at each gap by [algo::insertion_sort](#insertion_sort)
-Step III: Reduce the gap and repeat from Step I
+Step I : Choose a gap sequence ( n/2, n/4, ...)<br>
+Step II: Sort elements at each gap by [algo::insertion_sort](#insertion_sort)<br>
+Step III: Reduce the gap and repeat from Step I<br>
 
 ##### Time Complexity
 
