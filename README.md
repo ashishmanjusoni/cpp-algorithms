@@ -262,6 +262,7 @@ template<typename RandomIter,typename Compare> void heap_sort(RandomIter begin, 
 | Average Case | O(n*log(n)) |
 
 <a name="shell_sort"/>
+
 ### algo::shell_sort
 > In-place Comparision Sorting Algorithm
 ```
