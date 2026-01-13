@@ -47,6 +47,26 @@ for(j=y-1;j>=begin && cmp(*j,data)>0;j--) *(j+1)=*j;
 }
 
 template<typename RandomIter,typename Compare>
+void shell_sort(RandomIter begin,RandomIter end, Compare cmp)
+{
+RandomIter y;
+RandomIter j;
+typename std::iterator_traits<RandomIter>::difference_type size=algo::count(begin,end);
+typename std::iterator_traits<RandomIter>::difference_type diff=size/2;
+while(diff>0)
+{
+for(y=begin+diff;y<end;y+=diff)
+{
+typename std::iterator_traits<RandomIter>::value_type num=*y;
+for(j=y-diff;j>=begin && cmp(*j,num)>0;j-=diff) *(j+diff)=*j;
+*(j+diff)=num;
+}
+diff/=2;
+}
+}
+
+
+template<typename RandomIter,typename Compare>
 RandomIter partition_point(RandomIter begin,RandomIter end,Compare cmp)
 {
 RandomIter e,f;
