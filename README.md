@@ -8,6 +8,7 @@
 &emsp; [algo::quick_sort](#quick_sort)<br>
 &emsp; [algo::merge_sort](#merge_sort)<br>
 &emsp; [algo::heap_sort](#heap_sort)<br>
+&emsp; [algo::shell_sort](#shell_sort)<br>
 <a name="algorithms"/>
 
 # Algorithms
@@ -259,4 +260,26 @@ template<typename RandomIter,typename Compare> void heap_sort(RandomIter begin, 
 | Worst Case | O(n*log(n)) |
 | Best Case | O(n*log(n)) |
 | Average Case | O(n*log(n)) |
+
+<a name="shell_sort"/>
+### algo::shell_sort
+> In-place Comparision Sorting Algorithm
+```
+template<RandomAccessIter,typename Compare> void shell_sort(RandomIter begin, RandomIter end,Compare cmp);
+```
+* An optimization of [algo::insertion_sort](#insertion_sort)
+* It improves the efficiency of the insertion sort by allowing element to be moved larger distance in the initial stage, which significantly reduces the number of swaps
+* It works by comparing the element at large gap between the elements, then gradually the reduces the gap.
+
+Step I : Choose a gap sequence ( n/2, n/4, ...)
+Step II: Sort elements at each gap by [algo::insertion_sort](#insertion_sort)
+Step III: Reduce the gap and repeat from Step I
+
+##### Time Complexity
+
+| Cases | Complexity |
+| --- | --- |
+| Worst Case | O(n^2)) |
+| Best Case | O(n*log(n)) |
+| Average Case | O(n^1.25)-O(n^1.5)) |
 
