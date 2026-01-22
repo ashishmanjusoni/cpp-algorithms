@@ -292,6 +292,115 @@ else break;
 }
 }
 }
+
+template<typename RandomIter,typename Compare>
+void pancake_sort(RandomIter begin, RandomIter end, Compare cmp)
+{
+RandomIter max_iter,i,y;
+y=end-1;
+while(y>begin)
+{
+max_iter=begin;
+i=begin+1;
+while(i<=y)
+{
+if(cmp(*max_iter,*i)<0) max_iter=i;
+++i;
+}
+algo::reverse(begin,max_iter);
+algo::reverse(begin,y);
+y--;
+}
+}
+
+template<typename RandomIter>
+void count_sort(RandomIter begin, RandomIter end)
+{
+int max;
+int num;
+max=*begin;
+vector<forward_list<typename iterator_traits<RandomIter>::value_type>*> *buffer;
+for(RandomIter itr=begin+1;itr!=end;++itr) if(max<*itr) max=*itr;
+max++;
+buffer=new vector<forward_list<typename iterator_traits<RandomIter>::value_type>*>(max,nullptr);
+for(RandomIter itr=begin;itr!=end;++itr)
+{
+num=*itr;
+auto b=buffer->at(num);
+if(b==nullptr) b=new forward_list<typename iterator_traits<RandomIter>::value_type>;
+b->push_front(*itr);
+buffer->at(num)=b;
+}
+RandomIter ri=begin;
+for(int i=0;i<max;i++)
+{
+auto v=buffer->at(i);
+if(v)
+{
+for(typename forward_list<typename iterator_traits<RandomIter>::value_type>::iterator itr=v->begin();itr!=v->end();++itr)
+{
+*ri=*itr;
+++ri;
+}
+delete v;
+}
+}
+delete(buffer);
+}
+
+template<typename RandomIter,class Compare>
+void bucket_sort(RandomIter begin, RandomIter end,Compare cmp)
+{
+RandomIter max;
+RandomIter itr;
+int dc;
+int idx;
+int num;
+array<forward_list<typename iterator_traits<RandomIter>::value_type> *,10> buffer;
+for(int j=0;j<=9;j++) buffer[j]=NULL;
+typename forward_list<typename iterator_traits<RandomIter>::value_type>::iterator prev;
+typename forward_list<typename iterator_traits<RandomIter>::value_type>::iterator i;
+forward_list<typename iterator_traits<RandomIter>::value_type> *fl_itr=NULL;
+max=begin;
+for(RandomIter y=begin+1;y<end;y++) if(cmp(*max,*y)<0) max=y;
+for(dc=1,num=*max;num>9;dc*=10,num/=10);
+itr=begin;
+while(itr!=end)
+{
+num=*itr;
+idx=num/dc;
+if(buffer[idx])
+{
+fl_itr=buffer[idx];
+for(prev=fl_itr->before_begin(),i=fl_itr->begin();i!=fl_itr->end();++i)
+{
+int right=*i;
+if(cmp(num,right)<0) break;
+prev=i;
+}
+fl_itr->insert_after(prev,*itr);
+}
+else
+{
+buffer[idx]=new forward_list<typename iterator_traits<RandomIter>::value_type>;
+(buffer[idx])->push_front(*itr);
+}
+++itr;
+}
+itr=begin;
+for(int j=0;j<=9;j++)
+{
+if(buffer[j])
+{
+for(i=buffer[j]->begin();i!=buffer[j]->end();++i)
+{
+*itr=*i;
+++itr;
+}
+delete buffer[j];
+}
+}
+}
 }
 
 #endif

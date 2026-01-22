@@ -73,7 +73,7 @@ void reverse(BidirectionalIterator begin, BidirectionalIterator end)
 int e;
 BidirectionalIterator a,b;
 typename std::iterator_traits<BidirectionalIterator>::difference_type f=std::distance(begin,end);
-for(e=0,a=begin,b=end-1;e<f;e++,f--,a++,b--) iter_swap(a,b);
+for(e=0,a=begin,b=end;e<f;e++,f--,a++,b--) algo::iter_swap(a,b);
 }
 
 template<class ForwardIterator>
