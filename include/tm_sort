@@ -5,6 +5,7 @@
 #include<stack>
 #include<vector>
 #include<iterator>
+#include<forward_list>
 namespace algo
 {
 template<typename RandomIter, typename Compare>
@@ -319,15 +320,15 @@ void count_sort(RandomIter begin, RandomIter end)
 int max;
 int num;
 max=*begin;
-vector<forward_list<typename iterator_traits<RandomIter>::value_type>*> *buffer;
+std::vector<std::forward_list<typename std::iterator_traits<RandomIter>::value_type>*> *buffer;
 for(RandomIter itr=begin+1;itr!=end;++itr) if(max<*itr) max=*itr;
 max++;
-buffer=new vector<forward_list<typename iterator_traits<RandomIter>::value_type>*>(max,nullptr);
+buffer=new std::vector<std::forward_list<typename std::iterator_traits<RandomIter>::value_type>*>(max,nullptr);
 for(RandomIter itr=begin;itr!=end;++itr)
 {
 num=*itr;
 auto b=buffer->at(num);
-if(b==nullptr) b=new forward_list<typename iterator_traits<RandomIter>::value_type>;
+if(b==nullptr) b=new std::forward_list<typename std::iterator_traits<RandomIter>::value_type>;
 b->push_front(*itr);
 buffer->at(num)=b;
 }
@@ -337,7 +338,7 @@ for(int i=0;i<max;i++)
 auto v=buffer->at(i);
 if(v)
 {
-for(typename forward_list<typename iterator_traits<RandomIter>::value_type>::iterator itr=v->begin();itr!=v->end();++itr)
+for(typename std::forward_list<typename std::iterator_traits<RandomIter>::value_type>::iterator itr=v->begin();itr!=v->end();++itr)
 {
 *ri=*itr;
 ++ri;
@@ -356,11 +357,11 @@ RandomIter itr;
 int dc;
 int idx;
 int num;
-array<forward_list<typename iterator_traits<RandomIter>::value_type> *,10> buffer;
+std::array<std::forward_list<typename std::iterator_traits<RandomIter>::value_type> *,10> buffer;
 for(int j=0;j<=9;j++) buffer[j]=NULL;
-typename forward_list<typename iterator_traits<RandomIter>::value_type>::iterator prev;
-typename forward_list<typename iterator_traits<RandomIter>::value_type>::iterator i;
-forward_list<typename iterator_traits<RandomIter>::value_type> *fl_itr=NULL;
+typename std::forward_list<typename std::iterator_traits<RandomIter>::value_type>::iterator prev;
+typename std::forward_list<typename std::iterator_traits<RandomIter>::value_type>::iterator i;
+std::forward_list<typename std::iterator_traits<RandomIter>::value_type> *fl_itr=NULL;
 max=begin;
 for(RandomIter y=begin+1;y<end;y++) if(cmp(*max,*y)<0) max=y;
 for(dc=1,num=*max;num>9;dc*=10,num/=10);
@@ -382,7 +383,7 @@ fl_itr->insert_after(prev,*itr);
 }
 else
 {
-buffer[idx]=new forward_list<typename iterator_traits<RandomIter>::value_type>;
+buffer[idx]=new std::forward_list<typename std::iterator_traits<RandomIter>::value_type>;
 (buffer[idx])->push_front(*itr);
 }
 ++itr;
@@ -401,6 +402,24 @@ delete buffer[j];
 }
 }
 }
+
+template<typename RandomIter, typename Compare>
+void gnom_sort(RandomIter begin, RandomIter end, Compare cmp)
+{
+RandomIter j;
+j=begin;
+while(j<end)
+{
+if(j==begin) j++;
+if(j>begin && cmp(*j,*(j-1))<0)
+{
+algo::iter_swap(j,j-1);
+j--;
+}
+else j++;
+}
+}
+
 }
 
 #endif
