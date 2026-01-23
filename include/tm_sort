@@ -420,6 +420,40 @@ else j++;
 }
 }
 
+template<typename RandomIter, typename Compare>
+void brick_sort(RandomIter begin, RandomIter end, Compare cmp)
+{
+if(algo::count(begin,end)==0) return;
+RandomIter tmp;
+bool isSwapped=true;
+RandomIter _end=end-3;
+RandomIter __end=end-2;
+while(isSwapped)
+{
+if(isSwapped) isSwapped=false;
+tmp=begin+1;
+while(tmp<=_end)
+{
+if(cmp(*(tmp+1),*tmp)<0)
+{
+algo::iter_swap(tmp,tmp+1);
+isSwapped=true;
+}
+tmp=tmp+2;
+}
+tmp=begin;
+while(tmp<=__end)
+{
+if(cmp(*(tmp+1),*tmp)<0)
+{
+algo::iter_swap(tmp,tmp+1);
+isSwapped=true;
+}
+tmp=tmp+2;
+}
+}
+}
+
 }
 
 #endif
