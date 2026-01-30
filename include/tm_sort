@@ -143,6 +143,44 @@ _quick_sort(begin,end-1,cmp);
 }
 
 template<class RandomIter, class Compare>
+void merge(RandomIter begin, RandomIter mid, RandomIter next_mid,RandomIter end,Compare cmp)
+{
+std::vector<typename std::iterator_traits<RandomIter>::value_type> buffer;
+RandomIter l1,l2,l3;
+l1=begin;
+l2=mid;
+l3=next_mid;
+while(l1<=l2 && l3<=end)
+{
+if(cmp(*l1,*l3)<0)
+{
+buffer.push_back(*l1);
+l1++;
+}
+else
+{
+buffer.push_back(*l3);
+l3++;
+}
+}
+while(l1<=l2)
+{
+buffer.push_back(*l1);
+l1++;
+}
+while(l3<=end)
+{
+buffer.push_back(*l3);
+l3++;
+}
+for(auto a:buffer)
+{
+*begin=a;
+begin++;
+}
+}
+
+template<class RandomIter, class Compare>
 void merge(RandomIter begin,RandomIter end,Compare cmp)
 {
 typename std::iterator_traits<RandomIter>::difference_type size=algo::count(begin,end);
@@ -451,6 +489,89 @@ isSwapped=true;
 }
 tmp=tmp+2;
 }
+}
+}
+
+template<typename RandomIter>
+void pigeon_hole_sort(RandomIter begin, RandomIter end)
+{
+std::vector<std::vector<typename std::iterator_traits<RandomIter>::value_type>> *buffer;
+typename std::vector<std::vector<typename std::iterator_traits<RandomIter>::value_type>>::iterator buf_itr;
+int max,min,index;
+long int range;
+max=0;
+min=0;
+for(RandomIter itr=begin;itr!=end;itr++)
+{
+if(max<*itr) max=*itr;
+if(min>*itr) min=*itr;
+}
+range=(max-min)+1;
+buffer=new std::vector<std::vector<typename std::iterator_traits<RandomIter>::value_type>>(range);
+buf_itr=buffer->begin();
+for(RandomIter itr=begin;itr!=end;itr++)
+{
+index=(*itr)-min;
+buffer->at(index).push_back(*itr);
+}
+for(auto list : *buffer)
+{
+if(!list.empty())
+{
+for(auto l:list) 
+{
+*begin=l;
+begin++;
+}
+}
+}
+delete buffer;
+}
+
+template<typename RandomIter, typename Compare>
+void tim_sort(RandomIter begin, RandomIter end, Compare cmp)
+{
+int batch=10;
+typename std::iterator_traits<RandomIter>::difference_type size=algo::count(begin,end);
+if(size<=batch)
+{
+insertion_sort(begin,end,cmp);
+return;
+}
+typename std::iterator_traits<RandomIter>::difference_type len;
+int count=0;
+if(size<batch) count=1;
+else
+{
+count=size/batch;
+if(size%batch!=0) count++;
+}
+std::cout<<"batch size: "<<count<<std::endl;
+RandomIter e,f;
+e=begin;
+f=begin+batch;
+for(int i=1;i<=count;i++)
+{
+std::cout<<*e<<","<<*(f-1)<<std::endl;
+insertion_sort(e,f,cmp);
+e=f;
+len=algo::count(f,end);
+if(len<batch) f=end;
+else f=e+batch;
+}
+std::cout<<"************************"<<std::endl;
+e=begin;
+f=begin+batch-1;
+RandomIter e2,f2;
+for(int i=2;i<=count;i++)
+{
+len=algo::count(f+1,end);
+if(len<batch) f2=end-1;
+else f2=f+batch-1;
+e2=f+1;
+std::cout<<*e<<","<<*f<<","<<*e2<<","<<*f2<<std::endl;
+merge(e,f,e2,f2,cmp);
+f=f2;
 }
 }
 

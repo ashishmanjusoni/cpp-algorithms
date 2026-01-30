@@ -9,6 +9,7 @@
 &emsp; [algo::merge_sort](#merge_sort)<br>
 &emsp; [algo::heap_sort](#heap_sort)<br>
 &emsp; [algo::shell_sort](#shell_sort)<br>
+&emsp; [algo::pancake_sort](#pancake_sort)<br>
 <a name="algorithms"/>
 
 # Algorithms
@@ -283,4 +284,38 @@ Step III: Reduce the gap and repeat from Step I<br>
 | Worst Case | O(n^2)) |
 | Best Case | O(n*log(n)) |
 | Average Case | O(n^1.25)-O(n^1.5)) |
+
+
+<a name="pancake_sort"/>
+
+### algo::pancake_sort
+> In-place Comparision Sorting Algorithm
+```
+template<typename RandomIter,typename Compare>
+void pancake_sort(RandomIter begin, RandomIter end, Compare cmp)
+```
+Following are the detailed steps. Let given array be arr[] and size of array be n. 
+
+* Start from current size equal to n and reduce current size by one while it's greater than 1. Let the current size be curr_size.
+* Do following for every curr_size
+  * Find index of the maximum element in arr[0 to curr_size-1]. Let the index be 'mi'
+  * reverse array from (0 to mi)
+  * reverse array from (0, curr_size - 1)
+
+##### Time Complexity
+	O(n^2) - n is the number of elements
+
+<a name="count_sort"/>
+
+### algo::count_sort
+> Non-Comparision Sorting Algorithm
+```
+template<typename RandomIter>
+void count_sort(RandomIter begin, RandomIter end)
+```
+The main idea behind this algorithm is to count the frequency of each element from [begin,end). To maintain the count this algorithm uses the buffer array. It means it requires extra O(n) space. The size of the buffer index will be calculated based on the greater element (key (int)+1) amongs the elements [begin,end). **Each elements should overload the data type int because in the algorithm each element is going to be treated as int.**
+
+##### Time Complexity
+	O(N+M) - N and M are the size of input array and buffer array
+
 
