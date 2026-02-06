@@ -564,8 +564,9 @@ for(int i=2;i<=count;i++)
 {
 len=algo::count(f+1,end);
 if(len<batch) f2=end-1;
-else f2=f+batch-1;
+else f2=f+1+batch-1;
 e2=f+1;
+std::cout<<*e<<","<<*f<<","<<*e2<<","<<*f2<<std::endl;
 merge(e,f,e2,f2,cmp);
 f=f2;
 }
