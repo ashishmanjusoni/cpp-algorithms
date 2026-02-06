@@ -10,6 +10,14 @@
 &emsp; [algo::heap_sort](#heap_sort)<br>
 &emsp; [algo::shell_sort](#shell_sort)<br>
 &emsp; [algo::pancake_sort](#pancake_sort)<br>
+&emsp; [algo::count_sort](#count_sort)<br>
+&emsp; [algo::bucket_sort](#bucket_sort)<br>
+&emsp; [algo::gnom_sort](#gnom_sort)<br>
+&emsp; [algo::brick_sort](#brick_sort)<br>
+&emsp; [algo::pigeon_hole_sort](#pigeon_hole_sort)<br>
+&emsp; [algo::tim_sort](#tim_sort)<br>
+
+
 <a name="algorithms"/>
 
 # Algorithms
@@ -318,4 +326,50 @@ The main idea behind this algorithm is to count the frequency of each element fr
 ##### Time Complexity
 	O(N+M) - N and M are the size of input array and buffer array
 
+<a name="bucket_sort"/>
+
+### algo::bucket_sort
+> Non-Comparision Sorting Algorithm
+> Address Calculation Sort
+```
+template<typename RandomIter,typename Compare>
+void bucket_sort(RandomIter begin, RandomIter end,Compare cmp)
+```
+
+<a name="gnom_sort"/>
+
+### algo::gnom_sort
+> Comparision Sorting Algorithm
+```
+template<typename RandomIter,typename Compare>
+void gnom_sort(RandomIter begin, RandomIter end,Compare cmp)
+```
+
+<a name="brick_sort"/>
+
+### algo::brick_sort
+> Non-Comparision Sorting Algorithm
+> Even-Odd Sorting Algorithm
+```
+template<typename RandomIter,typename Compare>
+void brick_sort(RandomIter begin, RandomIter end,Compare cmp)
+```
+
+<a name="pigeon_hole_sort"/>
+
+### algo::pigeon_hole_sort
+> Non-Comparision Sorting Algorithm
+```
+template<typename RandomIter>
+void pigeon_hole_sort(RandomIter begin, RandomIter end)
+```
+
+<a name="tim_sort"/>
+
+### algo::tim_sort
+> Comparision Sorting Algorithm
+```
+template<typename RandomIter,typename Compare>
+void tim_sort(RandomIter begin, RandomIter end,Compare cmp)
+```
 
