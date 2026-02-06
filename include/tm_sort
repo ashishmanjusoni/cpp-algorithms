@@ -546,20 +546,17 @@ else
 count=size/batch;
 if(size%batch!=0) count++;
 }
-std::cout<<"batch size: "<<count<<std::endl;
 RandomIter e,f;
 e=begin;
 f=begin+batch;
 for(int i=1;i<=count;i++)
 {
-std::cout<<*e<<","<<*(f-1)<<std::endl;
 insertion_sort(e,f,cmp);
 e=f;
 len=algo::count(f,end);
 if(len<batch) f=end;
 else f=e+batch;
 }
-std::cout<<"************************"<<std::endl;
 e=begin;
 f=begin+batch-1;
 RandomIter e2,f2;
@@ -569,12 +566,10 @@ len=algo::count(f+1,end);
 if(len<batch) f2=end-1;
 else f2=f+batch-1;
 e2=f+1;
-std::cout<<*e<<","<<*f<<","<<*e2<<","<<*f2<<std::endl;
 merge(e,f,e2,f2,cmp);
 f=f2;
 }
 }
-
 }
 
 #endif
