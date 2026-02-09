@@ -571,6 +571,20 @@ merge(e,f,e2,f2,cmp);
 f=f2;
 }
 }
+
+template<typename RandomIter, typename Compare>
+void stooge_sort(RandomIter begin, RandomIter end, Compare cmp)
+{
+RandomIter e;
+typename std::iterator_traits<RandomIter>::difference_type size = algo::count(begin,end);
+if(cmp(*begin,*(end-1))>0) algo::iter_swap(begin,end-1);
+if(size<=2) return;
+int portion=size-(size/3);
+stooge_sort(begin,begin+portion,cmp);
+stooge_sort(end-portion,end,cmp);
+stooge_sort(begin,begin+portion,cmp);
+}
+
 }
 
 #endif
