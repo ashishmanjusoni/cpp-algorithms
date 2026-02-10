@@ -585,6 +585,37 @@ stooge_sort(end-portion,end,cmp);
 stooge_sort(begin,begin+portion,cmp);
 }
 
+template<typename RandomIter, typename Compare>
+void cocktail_shacker_sort(RandomIter begin, RandomIter end, Compare cmp)
+{
+bool swapped;
+RandomIter e,f;
+--end;
+swapped=true;
+while(swapped)
+{
+swapped=false;
+for(e=begin,f=e+1;e<end;++e,++f)
+{
+if(cmp(*e,*f)>0)
+{
+algo::iter_swap(e,f);
+swapped=true;
+}
+}
+if(!swapped) break;
+--end;
+for(e=end,f=e-1;e>begin;--e,--f)
+{
+if(cmp(*e,*f)<0)
+{
+algo::iter_swap(e,f);
+swapped=true;
+}
+}
+++begin;
+}
+}
 }
 
 #endif
